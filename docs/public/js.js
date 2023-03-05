@@ -1,122 +1,122 @@
 //cookie
-function setCookie(name, value) {
-	var Days = 360;
-	var exp = new Date();
-	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-	document.cookie = escape(name) + "=" + escape(value) + ";expires=" + exp.toGMTString();
-}
-function getCookie(name) {
-	var arr, reg = new RegExp("(^| )" + escape(name) + "=([^;]*)(;|$)");
-	if (arr = document.cookie.match(reg))
-		return unescape(arr[2]);
-	else
-		return null;
-}
-function delCookie(name) {
-	var exp = new Date();
-	exp.setTime(exp.getTime() - 1);
-	var cval = getCookie(name);
-	if (cval != null)
-		document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
-}
+// function setCookie(name, value) {
+//   var Days = 360;
+//   var exp = new Date();
+//   exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+//   document.cookie = escape(name) + "=" + escape(value) + ";expires=" + exp.toGMTString();
+// }
+// function getCookie(name) {
+//   var arr, reg = new RegExp("(^| )" + escape(name) + "=([^;]*)(;|$)");
+//   if (arr = document.cookie.match(reg))
+//     return unescape(arr[2]);
+//   else
+//     return null;
+// }
+// function delCookie(name) {
+//   var exp = new Date();
+//   exp.setTime(exp.getTime() - 1);
+//   var cval = getCookie(name);
+//   if (cval != null)
+//     document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+// }
 
 function zyd_show() {
-	/* 显示 */
-	//document.querySelector(".zdy").style.display="block";
-	$(".zdy_name").val("");
-	$(".zdy_link").val("");
+  /* 显示 */
+  //document.querySelector(".zdy").style.display="block";
+  $(".zdy_name").val("");
+  $(".zdy_link").val("");
 
-	if ($(".zdy_button").attr("data") == "1") {
-		$(".i_r_edit").hide();
-		$(".zdy_button").attr("data", "0");
-	} else {
-		$(".i_r_edit").show();
-		$(".zdy_button").attr("data", "1");
-	}
+  if ($(".zdy_button").attr("data") == "1") {
+    $(".i_r_edit").hide();
+    $(".zdy_button").attr("data", "0");
+  } else {
+    $(".i_r_edit").show();
+    $(".zdy_button").attr("data", "1");
+  }
 }
 function zdy_close() {
-	/* 隐藏 */
-	document.querySelector(".zdy").style.display = "none";
-	$(".i_r_edit").hide();
+  /* 隐藏 */
+  document.querySelector(".zdy").style.display = "none";
+  $(".i_r_edit").hide();
 }
 //取消
 function zdy_false() {
-	/* 隐藏 */
-	document.querySelector(".zdy").style.display = "none";
-	$(".i_r_edit").hide();
+  /* 隐藏 */
+  document.querySelector(".zdy").style.display = "none";
+  $(".i_r_edit").hide();
 }
 function zyd_edit(index) {
-	/* 显示 */
-	document.querySelector(".zdy").style.display = "block";
-	var that = $($($(".jj-list-con li")[index]).children("a"));
-	$(".zdy_name").val(that.html());
-	$(".zdy_link").val(that.attr("href"));
-	//$(".i_r_edit").show();
-	$(".zdy").attr("date", index);
+  /* 显示 */
+  document.querySelector(".zdy").style.display = "block";
+  var that = $($($(".jj-list-con li")[index]).children("a"));
+  $(".zdy_name").val(that.html());
+  $(".zdy_link").val(that.attr("href"));
+  //$(".i_r_edit").show();
+  $(".zdy").attr("date", index);
 }
 
 //确定
 function zdy_true() {
-	$(".i_r_edit").hide();
-	/* 隐藏 */
-	document.querySelector(".zdy").style.display = "none";
-	var name = $(".zdy_name").val();
-	var link = $(".zdy_link").val();
-	var index = $(".zdy").attr("date");
-	//console.log(name,link);
-	setCookie("zdylink_" + index, name + "_fg_" + link);
-	c_init();
+  $(".i_r_edit").hide();
+  /* 隐藏 */
+  document.querySelector(".zdy").style.display = "none";
+  // var name = $(".zdy_name").val();
+  // var link = $(".zdy_link").val();
+  // var index = $(".zdy").attr("date");
+  // //console.log(name,link);
+  // setCookie("zdylink_" + index, name + "_fg_" + link);
+  // c_init();
 
 }
 
 
 function c_init() {
-	//$(".zdy_li").empty();
+  //$(".zdy_li").empty();
 
-	var aCookie = document.cookie.split(";");
+  var aCookie = document.cookie.split(";");
 
-	var zdylength = 0;
-	for (var i = 0; i < aCookie.length; i++) {
-		var aCrumb = aCookie[i].split("=");
-		if (aCrumb[0].toString().trim() == 'order_list') {
-			continue;
-		}
-		var name = unescape(aCrumb[0].trim());
+  var zdylength = 0;
+  for (var i = 0; i < aCookie.length; i++) {
+    var aCrumb = aCookie[i].split("=");
+    if (aCrumb[0].toString().trim() == 'order_list') {
+      continue;
+    }
+    var name = unescape(aCrumb[0].trim());
 
-		if (aCrumb[0].toString().trim().indexOf("zdylink_") > -1) {
+    if (aCrumb[0].toString().trim().indexOf("zdylink_") > -1) {
 
-			zdylength = zdylength + 1;
-			var l_l_edit = $(".jj-list-con li")[name.replace("zdylink_", "")];
-			if (l_l_edit) {
+      zdylength = zdylength + 1;
+      var l_l_edit = $(".jj-list-con li")[name.replace("zdylink_", "")];
+      if (l_l_edit) {
 
-				var link = getCookie(name).split("_fg_");
+        var link = getCookie(name).split("_fg_");
 
-				$($(l_l_edit).children("a")).attr("href", link[1]);
-				$($(l_l_edit).children("a")).html(link[0]);
-			}
-			//$(".zdy_li").append('<li><a href="'+link +'" class="link-3" target="_blank">'+(name.replace("zdylink_",""))+'</a><div class="i_r_remove" onclick="s_r(\''+aCrumb[0]+'\');"></div></li>');
-		}
+        $($(l_l_edit).children("a")).attr("href", link[1]);
+        $($(l_l_edit).children("a")).html(link[0]);
+      }
+      //$(".zdy_li").append('<li><a href="'+link +'" class="link-3" target="_blank">'+(name.replace("zdylink_",""))+'</a><div class="i_r_remove" onclick="s_r(\''+aCrumb[0]+'\');"></div></li>');
+    }
 
-	}
-	if (zdylength == 0) {
-		//$(".zdy_list").hide();
-	} else {
-		//$(".zdy_list").show();	
-	}
+  }
+  if (zdylength == 0) {
+    //$(".zdy_list").hide();
+  } else {
+    //$(".zdy_list").show();	
+  }
 
 }
 function s_r(key) {
-	delCookie(key.trim());
-	//c_init();
+  delCookie(key.trim());
+  //c_init();
 }
-window.onload = function () {
-	c_init();
-	var list_li = $("._b li");
-	for (var i = list_li.length - 1; i >= 0; i--) {
-		$(list_li[i]).append('<div class="i_r_edit" onclick="zyd_edit(\'' + i + '\');"></div>');
-	}
+// window.onload = function () {
+//   c_init();
+//   var list_li = $("._b li");
+//   for (var i = list_li.length - 1; i >= 0; i--) {
+//     $(list_li[i]).append('<div class="i_r_edit" onclick="zyd_edit(\'' + i + '\');"></div>');
+//   }
 
-}
+// }
 // // 百度统计代码开始，请删除或者修改成自己的
 // var _hmt = _hmt || [];
 // (function () {
@@ -132,199 +132,168 @@ window.onload = function () {
 var sllTop;
 var divsTop = 330;/*document.getElementsByClassName('content')[0].offsetTop; 获取当前对象到其上级层顶部的距离*/
 window.onscroll = function () {
-	var onBtn = document.getElementById('top-box');
-	sllTop = document.documentElement.scrollTop || document.body.scrollTop;//如果浏览器不支持第一个事件则选择第二
+  var onBtn = document.getElementById('top-box');
+  sllTop = document.documentElement.scrollTop || document.body.scrollTop;//如果浏览器不支持第一个事件则选择第二
 
-	if (sllTop >= 40) {
-		$('.header-con').css('padding', '0');
-		$('.logo img').css({ 'width': '50', 'margin-top': '5px', 'margin-left': '10px' });
-	} else {
-		$('.header-con').css('padding', '10px 0');
-		$('.logo img').css({ 'width': '60', 'margin-top': '0px', 'margin-left': '0px' });
-	}
+  if (sllTop >= 40) {
+    $('.header-con').css('padding', '0');
+    $('.logo img').css({ 'width': '50', 'margin-top': '5px', 'margin-left': '10px' });
+  } else {
+    $('.header-con').css('padding', '10px 0');
+    $('.logo img').css({ 'width': '60', 'margin-top': '0px', 'margin-left': '0px' });
+  }
 
-	if (sllTop > 240) {
-		$('#tbox2').css('display', 'block')
-	} else {
-		$('#tbox2').css('display', 'none');
-	}
-	if (sllTop >= divsTop) {
-		$('.left-list').css('position', 'fixed');
-	} else {
-		$('.left-list').css('position', '');
-	}
-	tlistTop();
+  if (sllTop > 240) {
+    $('#tbox2').css('display', 'block')
+  } else {
+    $('#tbox2').css('display', 'none');
+  }
+  if (sllTop >= divsTop) {
+    $('.left-list').css('position', 'fixed');
+  } else {
+    $('.left-list').css('position', '');
+  }
+  tlistTop();
 
 };
 
 
 
 function tlistTop() {
-	var sethome_conHeight;
-	var tihsHeight;
-	var list_text = document.getElementsByClassName('fa-caret-right');
-	if (list_text.length === 0) {
-		return false;  //如果匹配到0个元素，则将函数返回，不继续执行
-	}
-	arr1 = []; //存储元素的top距离页面顶部的高度
-	for (var i = 0; i <= 4; i++) {
-		thisHeight = document.getElementsByClassName('sethome-con')[i].offsetTop + divsTop - 80;
-		arr1.push(thisHeight); //将循环获取到的值添加到数组里面
-	}
+  var sethome_conHeight;
+  var tihsHeight;
+  var list_text = document.getElementsByClassName('fa-caret-right');
+  if (list_text.length === 0) {
+    return false;  //如果匹配到0个元素，则将函数返回，不继续执行
+  }
+  arr1 = []; //存储元素的top距离页面顶部的高度
+  for (var i = 0; i <= 4; i++) {
+    thisHeight = document.getElementsByClassName('sethome-con')[i].offsetTop + divsTop - 80;
+    arr1.push(thisHeight); //将循环获取到的值添加到数组里面
+  }
 
-	if (sllTop >= arr1[0]) {
-		list_text[0].style.opacity = 1;
-		list_text[1].style.opacity = 0;
-		list_text[2].style.opacity = 0;
-		list_text[3].style.opacity = 0;
-		list_text[4].style.opacity = 0;
-	} if (sllTop >= arr1[1]) {
-		list_text[0].style.opacity = 0;
-		list_text[1].style.opacity = 1;
-		list_text[2].style.opacity = 0;
-		list_text[3].style.opacity = 0;
-		list_text[4].style.opacity = 0;
-	} if (sllTop >= arr1[2]) {
-		list_text[0].style.opacity = 0;
-		list_text[1].style.opacity = 0;
-		list_text[2].style.opacity = 1;
-		list_text[3].style.opacity = 0;
-		list_text[4].style.opacity = 0;
-	} if (sllTop >= arr1[3]) {
-		list_text[0].style.opacity = 0;
-		list_text[1].style.opacity = 0;
-		list_text[2].style.opacity = 0;
-		list_text[3].style.opacity = 1;
-		list_text[4].style.opacity = 0;
-	} if (sllTop >= arr1[4]) {
-		list_text[0].style.opacity = 0;
-		list_text[1].style.opacity = 0;
-		list_text[2].style.opacity = 0;
-		list_text[3].style.opacity = 0;
-		list_text[4].style.opacity = 1;
-	}
+  if (sllTop >= arr1[0]) {
+    list_text[0].style.opacity = 1;
+    list_text[1].style.opacity = 0;
+    list_text[2].style.opacity = 0;
+    list_text[3].style.opacity = 0;
+    list_text[4].style.opacity = 0;
+  } if (sllTop >= arr1[1]) {
+    list_text[0].style.opacity = 0;
+    list_text[1].style.opacity = 1;
+    list_text[2].style.opacity = 0;
+    list_text[3].style.opacity = 0;
+    list_text[4].style.opacity = 0;
+  } if (sllTop >= arr1[2]) {
+    list_text[0].style.opacity = 0;
+    list_text[1].style.opacity = 0;
+    list_text[2].style.opacity = 1;
+    list_text[3].style.opacity = 0;
+    list_text[4].style.opacity = 0;
+  } if (sllTop >= arr1[3]) {
+    list_text[0].style.opacity = 0;
+    list_text[1].style.opacity = 0;
+    list_text[2].style.opacity = 0;
+    list_text[3].style.opacity = 1;
+    list_text[4].style.opacity = 0;
+  } if (sllTop >= arr1[4]) {
+    list_text[0].style.opacity = 0;
+    list_text[1].style.opacity = 0;
+    list_text[2].style.opacity = 0;
+    list_text[3].style.opacity = 0;
+    list_text[4].style.opacity = 1;
+  }
 }
 
 $('#gotop').click(function () {
-	$('body,html').animate({
-		scrollTop: 0
-	},
-		800);//点击回到顶部按钮，缓懂回到顶部,数字越小越快
+  $('body,html').animate({
+    scrollTop: 0
+  },
+    800);//点击回到顶部按钮，缓懂回到顶部,数字越小越快
 })
 
 
 /*选择搜索引擎*/
 $('.Select-box ul').hover(function () {
-	$(this).css('height', 'auto')
+  $(this).css('height', 'auto')
 }, function () {
-	$(this).css('height', '40px')
+  $(this).css('height', '40px')
 });
 $('.Select-box-2 ul').hover(function () {
-	$(this).css('height', 'auto')
+  $(this).css('height', 'auto')
 }, function () {
-	$(this).css('height', '47px')
+  $(this).css('height', '47px')
 });
 
 $('.Select-box-2 li').click(function () {
-	var _tihs = $(this).attr('class');
-	var _html = $(this).html();
-	var _name = 'q';
-	if (_tihs == 'this_s') {
-		return "";
-	}
-	if (_tihs == 'ff_s') {
-		_tihs = 'https://fsoufsou.com/search';
-		_name = 'q';
-	} else if (_tihs == 'google_s') {
-		_tihs = 'https://www.google.com/search';
-		_name = 'q';
-	} else if (_tihs == 'bing_s') {
-		_tihs = 'https://www.bing.com/search';
-		_name = 'q';
-	} else if (_tihs == 'miji_s') {
-		_tihs = 'https://duckduckgo.com/';
-		_name = 'q';
-	} else if (_tihs == 'baidu_s') {
-		_tihs = 'https://www.baidu.com/s';
-		_name = 'wd';
-	}
-	else {
-		_tihs = 'https://fsoufsou.com/search';
-		_name = 'q';
-	}
-	$('.baidu form').attr('action', _tihs);
-	$('.this_s').html(_html);
-	$('#kw-2').attr('name', _name);
-	$('.Select-box-2 ul').css('height', '48px');
-
-	setCookie("_search_", _html + "_nln_" + _tihs + "_nln_" + _name);
+  $('.Select-box-2 ul').css('height', '48px');
 });
 
 function _search_() {
-	var aCookie = document.cookie.split(";");
+  var aCookie = document.cookie.split(";");
 
-	for (var i = 0; i < aCookie.length; i++) {
-		var aCrumb = aCookie[i].split("=");
-		if (aCrumb[0].toString().trim() == 'order_list') {
-			continue;
-		}
-		var name = unescape(aCrumb[0].trim());
+  for (var i = 0; i < aCookie.length; i++) {
+    var aCrumb = aCookie[i].split("=");
+    if (aCrumb[0].toString().trim() == 'order_list') {
+      continue;
+    }
+    var name = unescape(aCrumb[0].trim());
 
-		if (aCrumb[0].toString().trim().indexOf("_search_") > -1) {
+    if (aCrumb[0].toString().trim().indexOf("_search_") > -1) {
 
-			var link = getCookie(name).split("_nln_");
+      var link = getCookie(name).split("_nln_");
 
-			$('.baidu form').attr('action', link[1]);
-			$('.this_s').html(link[0]);
-			$('#kw-2').attr('name', link[2]);
-			$('.Select-box-2 ul').css('height', '48px');
-		}
+      $('.baidu form').attr('action', link[1]);
+      $('.this_s').html(link[0]);
+      $('#kw-2').attr('name', link[2]);
+      $('.Select-box-2 ul').css('height', '48px');
+    }
 
-	}
+  }
 
 }
-_search_();
+// _search_();
 
 //清空输入框内容
 $('.qingkong').click(function () {
-	cls();
-	$(this).css('display', 'none')
+  cls();
+  $(this).css('display', 'none')
 });
 function cls() {
-	var sum = 0;
-	var t = document.getElementsByTagName("INPUT");
-	for (var i = 0; i < t.length; i++) {
-		if (t[i].type == 'text') {
-			++sum;
-			t[i].value = "";//清空 
-		}
-	}
+  var sum = 0;
+  var t = document.getElementsByTagName("INPUT");
+  for (var i = 0; i < t.length; i++) {
+    if (t[i].type == 'text') {
+      ++sum;
+      t[i].value = "";//清空 
+    }
+  }
 }
 
 //清空输入框按钮的显示和隐藏
 function if_btn() {
-	var btn_obj = document.getElementById("kw") || document.getElementById("kw-2");
-	var cls_btn = document.getElementById("qingkong");
-	var btn_obj_val;
-	var times;
-	//当元素获得焦点时
-	if (btn_obj == '' || btn_obj == null) {
-		return false;  //如果没有找到这个元素，则将函数返回，不继续执行
-	}
-	btn_obj.onfocus = function () {
-		times = setInterval(function () {
-			btn_obj_val = btn_obj.value;
-			if (btn_obj_val != 0) {
-				cls_btn.style.display = "block";
-			} else {
-				cls_btn.style.display = "none";
-			}
-		}, 200);
-	}
-	//元素失去焦点时
-	btn_obj.onblur = function () {
-		clearInterval(times);
-	}
+  var btn_obj = document.getElementById("kw") || document.getElementById("kw-2");
+  var cls_btn = document.getElementById("qingkong");
+  var btn_obj_val;
+  var times;
+  //当元素获得焦点时
+  if (btn_obj == '' || btn_obj == null) {
+    return false;  //如果没有找到这个元素，则将函数返回，不继续执行
+  }
+  btn_obj.onfocus = function () {
+    times = setInterval(function () {
+      btn_obj_val = btn_obj.value;
+      if (btn_obj_val != 0) {
+        cls_btn.style.display = "block";
+      } else {
+        cls_btn.style.display = "none";
+      }
+    }, 200);
+  }
+  //元素失去焦点时
+  btn_obj.onblur = function () {
+    clearInterval(times);
+  }
 
 }
 if_btn();
@@ -347,35 +316,35 @@ if_btn();
 
 
 $('.muban li').click(function () {
-	_index = $(this).index();
-	$(this).addClass('shaw').siblings().removeClass('shaw');
-	$('.muban-list ul').eq(_index).fadeIn(250).siblings().fadeOut(0);
+  _index = $(this).index();
+  $(this).addClass('shaw').siblings().removeClass('shaw');
+  $('.muban-list ul').eq(_index).fadeIn(250).siblings().fadeOut(0);
 });
 $('.ruanjian-tab li').click(function () {
-	_index = $(this).index();
-	$(this).addClass('shaw').siblings().removeClass('shaw');
-	$('.ruanjian-list ul').eq(_index).fadeIn(250).siblings().fadeOut(0);
+  _index = $(this).index();
+  $(this).addClass('shaw').siblings().removeClass('shaw');
+  $('.ruanjian-list ul').eq(_index).fadeIn(250).siblings().fadeOut(0);
 });
 
 $('.list-link-4').hover(function () {
-	//获取当前元素的title内容，赋值给_thisTit
-	var _thisTit = $(this).attr('data-title');
-	//tips提示内容为_thisTit（即等于当前鼠标滑过元素的title内容），吸附对象为当前鼠标滑过对象
-	if (_thisTit != "") {	//判断条件，当前元素的data-title不等于空才执行下面的代码
-		layer.tips(_thisTit, this, {
-			tips: [1, '#1E9FFF'],
-			time: 99999,
-		});
-	}
+  //获取当前元素的title内容，赋值给_thisTit
+  var _thisTit = $(this).attr('data-title');
+  //tips提示内容为_thisTit（即等于当前鼠标滑过元素的title内容），吸附对象为当前鼠标滑过对象
+  if (_thisTit != "") {	//判断条件，当前元素的data-title不等于空才执行下面的代码
+    layer.tips(_thisTit, this, {
+      tips: [1, '#1E9FFF'],
+      time: 99999,
+    });
+  }
 
 }, function () {
-	$('.layui-layer-tips').css('display', 'none')
+  $('.layui-layer-tips').css('display', 'none')
 });
 
 var btn = $("#kw-2"), oUl = $(".keylist")[0];
 
 $("#qingkong").click(function () {
-	oUl.style.display = 'none';
+  oUl.style.display = 'none';
 })
 
 // // 搜索联想
@@ -453,132 +422,178 @@ $("#qingkong").click(function () {
 // 扩展
 
 function initpage() {
-	var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
-	var _html = document.getElementsByTagName('html')[0];
-	view_width > 640 ? _html.style.fontSize = 640 / 16 + 'px' : _html.style.fontSize = view_width / 16 + 'px';
+  var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+  var _html = document.getElementsByTagName('html')[0];
+  view_width > 640 ? _html.style.fontSize = 640 / 16 + 'px' : _html.style.fontSize = view_width / 16 + 'px';
 }
 
+// localstorage 枚举
+const m_storage = new Map([
+  ['searchDefault', 'M_SEARCH']
+])
+
+
+// 自定义搜索
+const searchs = [
+  {
+    name: '谷 歌',
+    link: 'https://www.google.com/search',
+    key: 'q',
+  },
+  {
+    name: '必 应',
+    link: 'https://www.bing.com/search',
+    key: 'q',
+  },
+  {
+    name: 'duck',
+    link: 'https://duckduckgo.com/',
+    key: 'q',
+  },
+  {
+    name: '百 度',
+    link: 'https://www.baidu.com/s',
+    key: 'wd',
+  },
+  {
+    name: 'F 搜',
+    link: 'https://fsoufsou.com/search',
+    key: 'q',
+  },
+]
 
 // 自定义导航添加
 const navigations = [
-	{
-		category: '搜索',
-		children: [
-			{
-				title: 'MDN',
-				link: 'https://developer.mozilla.org/zh-CN/'
-			},
-			{
-				title: 'GitHub',
-				link: 'https://github.com/'
-			},
-			{
-				title: 'NPM',
-				link: 'https://www.npmjs.com/'
-			},
-			{
-				title: 'stackoverflow',
-				link: 'https://stackoverflow.com/search?q='
-			},
-			{
-				title: '开发者搜索',
-				link: 'https://kaifa.baidu.com/'
-			},
-		]
-	},
-	{
-		category: '文档',
-		children: [
-			{
-				title: 'Vue',
-				link: 'https://cn.vuejs.org/api/'
-			},
-			{
-				title: 'NodeJS',
-				link: 'https://nodejs.org/docs/latest-v15.x/api/'
-			},
-			{
-				title: '网道',
-				link: 'https://wangdoc.com/'
-			},
-			{
-				title: 'TS',
-				link: 'https://www.typescriptlang.org/docs/'
-			}
-		]
-	},
-	{
-		category: '工具',
-		children: [
-			{
-				title: 'DeepL翻译',
-				link: 'https://www.deepl.com/translator'
-			},
-			{
-				title: '百度翻译',
-				link: 'https://fanyi.baidu.com/'
-			},
-		]
-	},
-	{
-		category: '技术',
-		children: [
-			{
-				title: '稀土掘金',
-				link: 'https://juejin.cn/'
-			},
-			{
-				title: '吾爱破解',
-				link: 'https://www.52pojie.cn/'
-			},
-			{
-				title: '思否',
-				link: 'https://segmentfault.com/'
-			},
-			{
-				title: 'V2EX',
-				link: 'https://www.v2ex.com/'
-			},
-			{
-				title: 'fly63',
-				link: 'https://www.fly63.com/'
-			},
-		]
-	},
-	{
-		category: '博客',
-		children: [
-			{
-				title: '阮一峰',
-				link: 'http://ruanyifeng.com/'
-			},
-		]
-	},
-	{
-		category: '其它',
-		children: [
-		]
-	},
+  {
+    category: '搜索',
+    children: [
+      {
+        title: 'MDN',
+        link: 'https://developer.mozilla.org/zh-CN/'
+      },
+      {
+        title: 'GitHub',
+        link: 'https://github.com/search?q='
+      },
+      {
+        title: 'NPM',
+        link: 'https://www.npmjs.com/'
+      },
+      {
+        title: 'stackoverflow',
+        link: 'https://stackoverflow.com/search?q='
+      },
+      {
+        title: '开发者搜索',
+        link: 'https://kaifa.baidu.com/'
+      },
+      {
+        title: 'Goobe',
+        link: 'https://goobe.io/'
+      },
+    ]
+  },
+  {
+    category: '文档',
+    children: [
+      {
+        title: 'Vue',
+        link: 'https://cn.vuejs.org/api/'
+      },
+      {
+        title: 'NodeJS',
+        link: 'https://nodejs.org/docs/latest-v15.x/api/'
+      },
+      {
+        title: '网道',
+        link: 'https://wangdoc.com/'
+      },
+      {
+        title: 'TS',
+        link: 'https://www.typescriptlang.org/docs/'
+      }
+    ]
+  },
+  {
+    category: '工具',
+    children: [
+      {
+        title: 'DeepL翻译',
+        link: 'https://www.deepl.com/translator'
+      },
+      {
+        title: '百度翻译',
+        link: 'https://fanyi.baidu.com/'
+      },
+    ]
+  },
+  {
+    category: '技术',
+    children: [
+      {
+        title: '稀土掘金',
+        link: 'https://juejin.cn/'
+      },
+      {
+        title: '吾爱破解',
+        link: 'https://www.52pojie.cn/'
+      },
+      {
+        title: '思否',
+        link: 'https://segmentfault.com/'
+      },
+      {
+        title: 'GitChat',
+        link: 'https://gitbook.cn/chat/'
+      },
+      {
+        title: 'V2EX',
+        link: 'https://www.v2ex.com/'
+      },
+      {
+        title: 'fly63',
+        link: 'https://www.fly63.com/'
+      },
+    ]
+  },
+  {
+    category: '博客',
+    children: [
+      {
+        title: '阮一峰',
+        link: 'http://ruanyifeng.com/'
+      },
+    ]
+  },
+  {
+    category: '其它',
+    children: [
+      {
+        title: '搜索技巧',
+        link: './public/search.md'
+      },
+    ]
+  },
 ]
 
 function addNav(data) {
-	// 模拟数据
-	data.forEach(item => {
-		const temp = Array.from(Array(9), () => {
-			return {
-				title: '---',
-				link: '#'
-			}
-		})
-		item.children.forEach((item1, index1) => {
-			temp[index1] = item1
-		})
+  // 模拟数据
+  data.forEach(item => {
+    const temp = Array.from(Array(9), () => {
+      return {
+        title: '---',
+        link: '#'
+      }
+    })
+    item.children.forEach((item1, index1) => {
+      temp[index1] = item1
+    })
 
-		item.children = temp
-	})
-	const $content = $('.content .jianjie')
-	data.forEach(item => {
-		const templateHead = `
+    item.children = temp
+  })
+  const $content = $('.content .jianjie')
+  data.forEach(item => {
+    const templateHead = `
 		<div class="jj-list">
 		<div class="jj-list-tit">${item.category}</div>
 		<ul class="jj-list-con _b">
@@ -586,46 +601,104 @@ function addNav(data) {
 		</ul>
 	</div>
 		`
-		let templateCenter = ''
-		item.children.forEach(item1 => {
-			templateCenter += `
+    let templateCenter = ''
+    item.children.forEach(item1 => {
+      templateCenter += `
 				<li>
 				<a href="${item1.link}" class="link-3" rel="nofollow">${item1.title}</a>
 				</li>
 			`
-		})
+    })
 
-		const template = templateHead.replace('{{%==%}}', templateCenter)
+    const template = templateHead.replace('{{%==%}}', templateCenter)
 
-		$content.append($(template))
-	})
+    $content.append($(template))
+  })
 }
 
+function addSearch(data) {
+  const $ul = $('#baidu ul')
+  let template = ''
+  data.forEach(item => {
+    template += `<li data-link="${item.link}" data-key="${item.key}" data-nm="${item.name}">${item.name}</li>`
+  })
+  $ul.append(template)
+
+  $ul.click(item => {
+    const el = item.target
+    if (el.dataset.nm) {
+      loadSearch(el.dataset)
+      storageHandler(m_storage.get('searchDefault'), el.dataset)
+    }
+  })
+}
+
+function loadSearch(data) {
+  if (!data.nm) return
+  $('.baidu form').attr('action', data.link);
+  $('.this_s').text(data.nm)
+  $('#kw-2').attr('name', data.key);
+}
+
+
+function storageHandler(key, val = undefined) {
+  if (val !== undefined) {
+    if (val && typeof val === 'object') {
+      localStorage.setItem(key, JSON.stringify(val))
+    } else {
+      localStorage.setItem(key, val)
+    }
+    return
+  } else {
+    const data = localStorage.getItem(key)
+    if (typeof data === 'string') {
+      try {
+        const res = JSON.parse(data)
+        if (res && typeof res === 'object') {
+          return res
+        } else {
+          return data
+        }
+      } catch (e) {
+        return data
+      }
+    }
+
+  }
+}
+
+
 function init() {
-	// $('body').height($('body')[0].clientHeight);
-	initpage();
+  const data = storageHandler(m_storage.get('searchDefault'))
+  if (data && data.nm) {
+    loadSearch(data)
+  }
 
-	$(".taoba").click(function (event) {
-		var i = $(this).index();
-		var id = $('.dingwei')[i];
-		$("html,body").animate({ scrollTop: $(id).offset().top - 80 }, 800);
-	});
+  // $('body').height($('body')[0].clientHeight);
+  initpage();
+
+  $(".taoba").click(function (event) {
+    var i = $(this).index();
+    var id = $('.dingwei')[i];
+    $("html,body").animate({ scrollTop: $(id).offset().top - 80 }, 800);
+  });
 
 
-	$(".list-text").click(function (event) {
-		var i2 = $(this).index();
-		var id2 = $('.sethome-con')[i2];
-		$("html,body").animate({ scrollTop: $(id2).offset().top - 80 }, 800);
-	});
+  $(".list-text").click(function (event) {
+    var i2 = $(this).index();
+    var id2 = $('.sethome-con')[i2];
+    $("html,body").animate({ scrollTop: $(id2).offset().top - 80 }, 800);
+  });
 
-	$(window).resize(function () {
-		initpage();
-	})
+  $(window).resize(function () {
+    initpage();
+  })
 }
 
 // 入口
 $(function () {
-	addNav(navigations)
-	init()
+  addSearch(searchs)
+  addNav(navigations)
+  init()
 
 });
