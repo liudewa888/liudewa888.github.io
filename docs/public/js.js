@@ -570,7 +570,7 @@ const navigations = [
     children: [
       {
         title: '搜索技巧',
-        link: './public/search.md'
+        link: './public/search.html'
       },
     ]
   },

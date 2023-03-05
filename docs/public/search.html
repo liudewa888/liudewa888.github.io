@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高级搜索</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #e0e0c4;
+    }
+
+    html {
+      overflow-x: hidden;
+    }
+
+    @keyframes squeezeBody {
+      from {
+        width: 100%;
+      }
+
+      to {
+        width: calc(100% - 300px);
+      }
+    }
+
+    @-webkit-keyframes squeezeBody {
+      from {
+        width: 100%;
+      }
+
+      to {
+        width: calc(100% - 300px);
+      }
+    }
+
+    @keyframes stretchBody {
+      from {
+        width: calc(100% - 300px);
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @-webkit-keyframes stretchBody {
+      from {
+        width: calc(100% - 300px);
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Old Standard TT', serif;
+      font-weight: bold;
+    }
+
+    h3 {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .serif {
+      font-family: 'Old Standard TT', serif;
+    }
+
+    .top-bar {
+      height: 45px;
+      min-height: 45px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    .bars-lnk {
+      color: #fff;
+    }
+
+    .bars-lnk i {
+      display: inline-block;
+      margin-left: 10px;
+      margin-top: 7px;
+    }
+
+    .bars-lnk img {
+      display: inline-block;
+      margin-left: 10px;
+      margin-top: -15px;
+      margin-right: 15px;
+      height: 35px;
+    }
+
+    .lateral-menu {
+      background-color: #333;
+      color: rgb(144, 144, 144);
+      width: 300px;
+      font-family: 'Open Sans', 'Myriad Pro', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+    }
+
+    .lateral-menu label {
+      color: rgb(144, 144, 144);
+    }
+
+    .lateral-menu-content {
+      padding-left: 10px;
+      height: 100%;
+      font-size: 12px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: bold;
+      line-height: 16px;
+    }
+
+    .lateral-menu-content .title {
+      padding-top: 15px;
+      font-size: 2em;
+      height: 45px;
+    }
+
+    .lateral-menu-content-inner {
+      overflow-y: auto;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 50px;
+      padding-right: 10px;
+      font-size: 0.9em;
+    }
+
+
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      height: 100%;
+      padding-top: 65px;
+    }
+
+    .container>* {
+      display: block;
+      width: 50%;
+      margin-left: 10px;
+      margin-right: 10px;
+      max-height: 100%;
+    }
+
+    .container textarea {
+      resize: none;
+      font-family: Consolas, "Liberation Mono", Courier, monospace;
+      height: 97%;
+      max-height: 97%;
+      width: 45%;
+    }
+
+    #preview {
+      height: 97%;
+      max-height: 97%;
+      border: 1px solid #eee;
+      overflow-y: scroll;
+      width: 80%;
+      padding: 10px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      /* css-3 */
+      white-space: -moz-pre-wrap;
+      /* Mozilla, since 1999 */
+      white-space: -pre-wrap;
+      /* Opera 4-6 */
+      white-space: -o-pre-wrap;
+      /* Opera 7 */
+      word-wrap: break-word;
+      /* Internet Explorer 5.5+ */
+      background-color: #f8f8f8;
+      border: 1px solid #dfdfdf;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+      padding: 0.125rem 0.3125rem 0.0625rem;
+    }
+
+    pre code {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+
+    .modal-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background-color: rgba(51, 51, 51, 0.5);
+    }
+
+    .modal-inner {
+      margin-top: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 600px;
+      height: 225px;
+      background-color: #fff;
+      opacity: 1;
+      z-index: 1000;
+    }
+
+    .modal-close-btn {
+      float: right;
+      display: inline-block;
+      margin-right: 5px;
+      color: #ff4336;
+    }
+
+    .modal-close-btn:hover {
+      float: right;
+      display: inline-block;
+      margin-right: 5px;
+      color: #8d0002;
+    }
+
+    .modal-topbar {
+      clear: both;
+      height: 25px;
+    }
+
+    .modal-inner .link-area {
+      margin: 10px;
+      height: 170px;
+
+    }
+
+    .modal-inner textarea {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .version {
+      color: white;
+      font-size: 0.8em !important;
+    }
+
+    #main {
+      padding: 1rem;
+      width: 80vw;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div ng-bind-html="trustedHtml" class="ng-binding">
+      <h1>高级搜索</h1>
+      <h2>Google</h2>
+      <h3>搜索语法</h3>
+      <pre><code class="javascript language-javascript">
+    "vue" // "" 双引号 精确搜索
+    大河*东流 // * 模糊搜索
+    好?哥 // ? 配置单个字符
+    ~good // ~ 近义词
+    -key // - 排除
+    -url // -baidu.com 排除baidu.com
+    key1 key2 key3 // 多个关键词
+
+    OR/AND
+    python OR java
+    python AND java
+
+    intitle:key // 页面标题含有key
+    inurl:key // url中含有key
+    intext:key // 正文中含有key
+    inanchor: // 锚文本含有key
+
+    site
+    key site:juejin.cn // 只要juejin.cn结果
+
+    filetype
+    key filetype:pdf // 类型pdf
+    // 支持type: pdf、doc、docx（Word）、ppt、pptx（PPT）、xls、xlsx（Excel）、txt、text、tex（Tex/LaTex）
+
+    define key // 搜索key 定义
+    weather city // 城市天气
+        </code></pre>
+      <h2>stackoverflow</h2>
+      <p><a href="https://stackoverflow.com/help/searching">官方搜索文档</a></p>
+      <h3>搜索语法</h3>
+      <pre><code class="javascript language-javascript">
+    [tag] // tag 搜索
+    answers:0 // 答案数量
+    user:1234 // by author
+    score:3 // 3+ score
+    "words here" // 双引号精确搜索
+    is:question // type
+    collective:"Name" // collective content
+    isaccepted:yes // status
+        </code></pre>
+      <h2>GitHub</h2>
+      <p><a href="https://docs.github.com/cn/search-github/searching-on-github/searching-for-repositories">官方搜索文档</a>
+      </p>
+      <h3>搜索语法</h3>
+      <pre><code class="javascript language-javascript">
+    "vue demo" in:name topic:vue3 stars:&gt;500 language:java pushed:&gt;2019-12-01
+    
+    vue in:name // 名称含有vue的仓库
+    vue in:description,name // 描述和名称中含有vue
+    vue in:readme // readme文档含有vue
+    
+    repo:biao/blog // 匹配特定仓库名称,用户名为biao的blog仓库
+    topic:vue3 // name含有vue 下方主题(tag/topic)含有vue3
+    language:xxx // 编程语言是xxx
+    label:"bug fix" // 具有标签"bug fix",含有"build"字样
+    
+    stars:&gt; ：筛选stars数量大于某个值的仓库
+    stars:start..end ：筛选stars数量在start和end区间的仓库
+    
+    fork:start..end // 复刻
+    pushed:&gt;YYYY-MM-DD // 最后更新时间大于YYYY-MM-DD
+    created:&gt;2016-04-29 // 创建的时间
+    
+    size:50..120 // 50kb - 120kb的仓库
+    
+    node followers:&gt;=1000 // 1000个关注作者的仓库
+    
+    topics:&gt;3 // 主题
+    
+    // 排除特定结果(只适用字符串)
+    hello NOT world // 含hello不含world
+    cats NOT "hello world"
+    // - 前缀
+    mentions:biao -org:github // 匹配提及@biao, 且不在github组织仓库的议题
+        </code></pre>
+    </div>
+  </div>
+</body>
+
+
+</html>
