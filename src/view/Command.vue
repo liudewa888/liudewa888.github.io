@@ -1,5 +1,5 @@
 <template>
-  <div ng-bind-html="trustedHtml" class="ng-binding"><h1>常用快捷方式 和 命令行</h1>
+<div ng-bind-html="trustedHtml" class="ng-binding"><h1>常用快捷方式 和 命令行</h1>
 <h2>VSCode</h2>
 <h3>快捷方式win系统</h3>
 <pre><code>ctrl + 鼠标左键  // 多光标
@@ -29,7 +29,9 @@ new-item [filename] // 创建 文件 (powershell)
 
 echo a 2&gt; [filename] // 创建 文件
 
-md [dir name] // 创建 文件夹</code></pre>
+md [dir name] // 创建 文件夹
+
+ren [old name] [new name] // 重命名</code></pre>
 <h2>Git</h2>
 <h3>命令行</h3>
 <pre><code>// 工作中常用
@@ -38,7 +40,14 @@ git commit -m 'info'
 git stash // 修改的文件 压入栈中
 git pull origin dev
 git push origin dev_yu
-git stash pop // 弹出 最近栈中文件</code></pre></div>
+git stash pop // 弹出 最近栈中文件</code></pre>
+<h3>使用技巧</h3>
+<pre><code>// 在线看源码
+- github`1s`
+例子:
+https://github.com/liudewa888/webpack-example
+// 添加 '1s' 直接用vscode打开对应的源码
+https://github1s.com/liudewa888/webpack-example/</code></pre></div>
 </template>
 
 <script setup>

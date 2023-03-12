@@ -40,6 +40,8 @@ echo a 2> [filename] // 创建 文件
 
 md [dir name] // 创建 文件夹
 
+ren [old name] [new name] // 重命名
+
 ```
 
 ## Git
@@ -56,5 +58,16 @@ git pull origin dev
 git push origin dev_yu
 git stash pop // 弹出 最近栈中文件
 
+
+```
+### 使用技巧
+
+```
+// 在线看源码
+- github`1s`
+例子:
+https://github.com/liudewa888/webpack-example
+// 添加 '1s' 直接用vscode打开对应的源码
+https://github1s.com/liudewa888/webpack-example/
 
 ```
