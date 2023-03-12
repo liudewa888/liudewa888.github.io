@@ -2,7 +2,7 @@
 **主打前端简约高效搜索**
 
 ## 演示地址
-[Demo](url(https://liudewa888.github.io/))
+[Demo](https://liudewa888.github.io/)
 
 ## 更新说明
 ### 最近更新

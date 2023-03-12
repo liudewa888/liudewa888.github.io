@@ -16,9 +16,9 @@ const routes = [
     component: () => import('../view/Search.vue')
   },
   {
-    path: '/vscode',
-    name: 'vscode',
-    component: () => import('../view/Vscode.vue')
+    path: '/command',
+    name: 'command',
+    component: () => import('../view/Command.vue')
   }
 ]
 

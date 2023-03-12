@@ -110,8 +110,8 @@ export const navigations = [
         link: '/search'
       },
       {
-        title: 'VSCode技巧',
-        link: '/vscode'
+        title: '快捷和命令',
+        link: '/command'
       },
     ]
   },

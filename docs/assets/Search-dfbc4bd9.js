@@ -1,4 +1,4 @@
-import{_ as n,b as e,g as t,l as o}from"./index-f290dfce.js";const a={},s={"ng-bind-html":"trustedHtml",class:"ng-binding"},c=o(`<h1>高级搜索</h1><h2>Google</h2><h3>搜索语法</h3><pre><code class="javascript language-javascript">
+import{_ as n,b as e,g as t,l as o}from"./index-0a55bec9.js";const a={},s={"ng-bind-html":"trustedHtml",class:"ng-binding"},c=o(`<h1>高级搜索</h1><h2>Google</h2><h3>搜索语法</h3><pre><code class="javascript language-javascript">
     &quot;vue&quot; // &quot;&quot; 双引号 精确搜索
 
     大河*东流 // * 模糊搜索
