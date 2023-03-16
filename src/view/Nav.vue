@@ -245,7 +245,7 @@ onMounted(() => {
 <style scoped>
 .search {
   width: 50vw;
-  margin: 80px 0;
+  margin: 20vh 0 80px;
   display: flex;
   align-items: center;
 }
