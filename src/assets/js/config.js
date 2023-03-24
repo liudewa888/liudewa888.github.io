@@ -48,6 +48,10 @@ export const navigations = [
       {
         title: 'TS',
         link: 'https://www.typescriptlang.org/docs/'
+      },
+      {
+        title: 'Webpack',
+        link: 'https://yk2012.github.io/sgg_webpack5/base/optimizeCss.html#_2-%E9%85%8D%E7%BD%AE'
       }
     ]
   },

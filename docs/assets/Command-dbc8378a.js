@@ -1,4 +1,4 @@
-import{_ as e,b as n,g as t,l as c}from"./index-28913d97.js";const r={},i={"ng-bind-html":"trustedHtml",class:"ng-binding"},o=c(`<h1>常用快捷方式 和 命令行</h1><h2>VSCode</h2><h3>快捷方式win系统</h3><pre><code>ctrl + 鼠标左键  // 多光标
+import{_ as e,b as n,g as t,l as c}from"./index-025ac4cb.js";const r={},i={"ng-bind-html":"trustedHtml",class:"ng-binding"},o=c(`<h1>常用快捷方式 和 命令行</h1><h2>VSCode</h2><h3>快捷方式win系统</h3><pre><code>ctrl + 鼠标左键  // 多光标
 
 ctrl + P // 查找文件
 
