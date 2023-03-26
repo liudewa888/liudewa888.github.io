@@ -1,4 +1,4 @@
-import{_ as n,b as e,g as t,l as o}from"./index-025ac4cb.js";const a={},s={"ng-bind-html":"trustedHtml",class:"ng-binding"},c=o(`<h1>高级搜索</h1><h2>Google</h2><h3>搜索语法</h3><pre><code class="javascript language-javascript">
+import{ah as n,e,f as t,aj as o}from"./index-7f589eea.js";const a={},s={"ng-bind-html":"trustedHtml",class:"ng-binding"},c=o(`<h1>高级搜索</h1><h2>Google</h2><h3>搜索语法</h3><pre><code class="javascript language-javascript">
     &quot;vue&quot; // &quot;&quot; 双引号 精确搜索
 
     大河*东流 // * 模糊搜索
@@ -92,4 +92,4 @@ import{_ as n,b as e,g as t,l as o}from"./index-025ac4cb.js";const a={},s={"ng-b
 
     // - 前缀
     mentions:biao -org:github // 匹配提及@biao, 且不在github组织仓库的议题
-        </code></pre>`,12),r=[c];function i(u,l){return e(),t("div",s,r)}const d=n(a,[["render",i]]);export{d as default};
+        </code></pre>`,12),r=[c];function i(u,l){return e(),t("div",s,r)}const p=n(a,[["render",i]]);export{p as default};

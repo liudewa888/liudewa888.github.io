@@ -1,4 +1,4 @@
-import{_ as e,b as n,g as t,l as c}from"./index-025ac4cb.js";const r={},i={"ng-bind-html":"trustedHtml",class:"ng-binding"},o=c(`<h1>常用快捷方式 和 命令行</h1><h2>VSCode</h2><h3>快捷方式win系统</h3><pre><code>ctrl + 鼠标左键  // 多光标
+import{ah as e,e as n,f as t,aj as c}from"./index-7f589eea.js";const r={},i={"ng-bind-html":"trustedHtml",class:"ng-binding"},o=c(`<h1>常用快捷方式 和 命令行</h1><h2>VSCode</h2><h3>快捷方式win系统</h3><pre><code>ctrl + 鼠标左键  // 多光标
 
 ctrl + P // 查找文件
 
@@ -35,4 +35,4 @@ git stash pop // 弹出 最近栈中文件</code></pre><h3>使用技巧</h3><pre
 例子:
 https://github.com/liudewa888/webpack-example
 // 添加 &#39;1s&#39; 直接用vscode打开对应的源码
-https://github1s.com/liudewa888/webpack-example/</code></pre>`,12),l=[o];function s(d,a){return n(),t("div",i,l)}const m=e(r,[["render",s]]);export{m as default};
+https://github1s.com/liudewa888/webpack-example/</code></pre>`,12),l=[o];function s(a,d){return n(),t("div",i,l)}const m=e(r,[["render",s]]);export{m as default};

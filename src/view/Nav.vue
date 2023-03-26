@@ -12,8 +12,8 @@
           <el-button type="primary" @click="gotoSearch">搜索</el-button>
         </template>
       </el-input>
-      <el-tag size="large" style="margin-left: 8px;color:#fafafa;cursor: pointer;" @click="showHightSerch"
-        color="#9e6816">高级</el-tag>
+      <el-tag size="large" style="margin-left: 8px;color:#fafafa;cursor: pointer;" @click="showHightSearch"
+        color="#b1b19e" disable-transitions>高级</el-tag>
     </div>
 
     <!-- 内容start -->
@@ -75,6 +75,8 @@ import { reactive, toRefs, computed, ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 import { navigations, searchs, includes, excludes } from '../assets/js/config'
 import { storageHandler } from '../assets/js/tool'
+
+import { ElButton, ElRow, ElCol, ElOption, ElSelect, ElInput, ElTag, ElCheckbox, ElSpace, ElCheckboxGroup, ElFormItem, ElForm, ElDialog } from 'element-plus'
 const router = useRouter()
 const searchKey = 'SEARCH_KEY'
 const searchEngineDefault = 'SEARCH_ENGINE_DEFAULT'
@@ -141,7 +143,7 @@ const reset = (flag) => {
   }
 }
 
-const showHightSerch = () => {
+const showHightSearch = () => {
   dialogShow.value = true
 }
 const onceSearch = () => {
@@ -339,6 +341,10 @@ onMounted(() => {
   background: rgba(0, 0, 0, .45);
   font-size: 15px;
   font-weight: bold
+}
+
+[v-cloak] {
+  display: none;
 }
 
 /* 适配移动端 */
