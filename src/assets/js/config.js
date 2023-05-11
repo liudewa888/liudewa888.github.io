@@ -66,6 +66,10 @@ export const navigations = [
         title: '百度翻译',
         link: 'https://fanyi.baidu.com/'
       },
+      {
+        title: '星火GPT',
+        link: 'https://xinghuo.xfyun.cn/desk'
+      },
     ]
   },
   {
@@ -103,6 +107,10 @@ export const navigations = [
       {
         title: '阮一峰',
         link: 'http://ruanyifeng.com/'
+      },
+      {
+        title: '每日 Github',
+        link: 'https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo'
       },
     ]
   },
