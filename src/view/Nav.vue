@@ -71,18 +71,17 @@
   </el-row>
 </template>
 <script setup>
-import { reactive, toRefs, computed, ref, onMounted } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
-import { navigations, searchs, includes, excludes } from '../assets/js/config'
 import { storageHandler } from '../assets/js/tool'
-
 import { ElButton, ElRow, ElCol, ElOption, ElSelect, ElInput, ElTag, ElCheckbox, ElSpace, ElCheckboxGroup, ElFormItem, ElForm, ElDialog } from 'element-plus'
+
+const { navigations, searchs, includes, excludes } = window.__nav_data
 const router = useRouter()
 const searchKey = 'SEARCH_KEY'
 const searchEngineDefault = 'SEARCH_ENGINE_DEFAULT'
 const searchVal = ref('')
 const searchEngine = ref(1)
-const hightSearchForm = ref({})
 const searchRules = ref('')
 const dialogShow = ref(false)
 

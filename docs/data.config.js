@@ -1,5 +1,5 @@
 // 前端网址
-export const navigations = [
+const navigations = [
   {
     category: "搜索",
     children: [
@@ -136,7 +136,7 @@ export const navigations = [
   },
 ];
 // 搜索引擎
-export const searchs = [
+const searchs = [
   {
     name: "谷 歌",
     link: "https://www.google.com/search",
@@ -164,7 +164,7 @@ export const searchs = [
   },
 ];
 // 包含网址
-export const includes = [
+const includes = [
   {
     title: "掘金",
     link: "juejin.cn",
@@ -191,7 +191,7 @@ export const includes = [
   },
 ];
 // 排除网址
-export const excludes = [
+const excludes = [
   {
     title: "CSDN",
     link: "csdn.net",
@@ -213,3 +213,5 @@ export const excludes = [
     link: "developer.aliyun.com",
   },
 ];
+
+window.__nav_data = {navigations,searchs,includes,excludes}

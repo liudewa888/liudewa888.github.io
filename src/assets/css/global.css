@@ -2,3 +2,7 @@
   --primary: #e6a23c;
   --primary-important: #9e6816;
 }
+
+body {
+  background-color: #e0e0c4;
+}
