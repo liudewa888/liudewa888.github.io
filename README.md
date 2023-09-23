@@ -2,7 +2,8 @@
 **主打前端简约高效搜索**
 
 ## 演示地址
-[Demo](https://liudewa888.github.io/)
+- GitHub[导航地址](https://liudewa888.github.io/)
+- 快速访问[导航地址](http://www.yztpsg.cn/nav)
 
 ## 更新说明
 ### 最近更新
