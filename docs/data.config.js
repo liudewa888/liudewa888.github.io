@@ -52,6 +52,10 @@ const navigations = [
         title: "Webpack",
         link: "https://yk2012.github.io/sgg_webpack5/base/optimizeCss.html#_2-%E9%85%8D%E7%BD%AE",
       },
+      {
+        title: "Vitest",
+        link: "https://cn.vitest.dev/api/expect.html",
+      },
     ],
   },
   {
@@ -76,6 +80,14 @@ const navigations = [
       {
         title: "百度GPT",
         link: "https://yiyan.baidu.com/",
+      },
+      {
+        title: "英语学习",
+        link: "https://qwerty.kaiyi.cool/",
+      },
+      {
+        title: "口语练习",
+        link: "https://earthworm.cuixueshe.com/",
       },
     ],
   },
