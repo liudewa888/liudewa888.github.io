@@ -10,16 +10,6 @@ const routes = [
     name: 'nav',
     component: () => import('../view/Nav.vue')
   },
-  {
-    path: '/search',
-    name: 'search',
-    component: () => import('../view/Search.vue')
-  },
-  {
-    path: '/command',
-    name: 'command',
-    component: () => import('../view/Command.vue')
-  }
 ]
 
 const router = createRouter({

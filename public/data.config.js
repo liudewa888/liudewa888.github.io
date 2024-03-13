@@ -16,7 +16,7 @@ const navigations = [
         link: "https://www.npmjs.com/",
       },
       {
-        title: "stackoverflow",
+        title: "Stackoverflow",
         link: "https://stackoverflow.com/search?q=",
       },
       {
@@ -56,6 +56,14 @@ const navigations = [
         title: "Vitest",
         link: "https://cn.vitest.dev/api/expect.html",
       },
+      {
+        title: "Tailwindcss",
+        link: "https://tailwindcss.com/",
+      },
+      {
+        title: "Nuxt",
+        link: "https://nuxt.com/",
+      },
     ],
   },
   {
@@ -89,6 +97,10 @@ const navigations = [
         title: "口语练习",
         link: "https://earthworm.cuixueshe.com/",
       },
+      {
+        title: "滴答清单",
+        link: "https://www.dida365.com/",
+      },
     ],
   },
   {
@@ -115,7 +127,7 @@ const navigations = [
         link: "https://www.v2ex.com/",
       },
       {
-        title: "fly63",
+        title: "Fly63",
         link: "https://www.fly63.com/",
       },
     ],
@@ -137,12 +149,16 @@ const navigations = [
     category: "其它",
     children: [
       {
-        title: "搜索技巧",
-        link: "/search",
+        title: "掘金文章",
+        link: "https://juejin.cn/user/2708815556129406/posts",
       },
       {
-        title: "快捷和命令",
-        link: "/command",
+        title: "掘金收藏",
+        link: "https://juejin.cn/user/2708815556129406/collections",
+      },
+      {
+        title: "My GitHub",
+        link: "https://github.com/liudewa888",
       },
     ],
   },
