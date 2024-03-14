@@ -256,13 +256,19 @@ const dialogClose = () => {
 
 const saveStorage = () => {
   let temp = null;
-  if (checkedIncludes.value.length > -1) {
+  const len1 = checkedIncludes.value.length;
+  const len2 = checkedExcludes.value.length;
+  if (!len1 && !len2) {
+    reset();
+    localStorage.removeItem(searchKey);
+  }
+  if (len1) {
     temp = {
       index: "0",
       checkedList: checkedIncludes.value,
     };
   }
-  if (checkedExcludes.value.length > -1) {
+  if (len2) {
     temp = {
       index: "1",
       checkedList: checkedExcludes.value,
