@@ -6,6 +6,7 @@
         v-model="searchVal"
         clearable
         input-style="border:none;"
+        ref="inputRef"
         @keyup.enter="gotoSearch"
       >
         <template #prepend>
@@ -148,7 +149,7 @@ const searchVal = ref("");
 const searchEngine = ref(1);
 const searchRules = ref("");
 const dialogShow = ref(false);
-
+const inputRef = ref(null);
 const includesTemp = includes.map((item) => item.link);
 const checkAllIncludes = ref(false);
 const isIndeterminateIncludes = ref(false);
@@ -307,9 +308,17 @@ const init = () => {
     searchEngine.value = Number(searchEngineDefaultTemp);
   }
 };
-
+function listenerInit() {
+  window.addEventListener("keypress", (e) => {
+    if (e.key === "/" && inputRef.value !== document.activeElement) {
+      inputRef.value.focus();
+      e.preventDefault();
+    }
+  });
+}
 onMounted(() => {
   init();
+  listenerInit();
 });
 </script>
 
