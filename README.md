@@ -1,10 +1,23 @@
 # 前端搜索
+
 **主打前端简约高效搜索**
 
+## Demo
+
+- ![demo1](./public/image/demo1.jpeg)
+- ![demo2](./public/image/demo2.png)
+- ![demo3](./public/image/demo3.jpeg)
+
 ## 演示地址
-- GitHub[导航地址](https://liudewa888.github.io/)
-- 快速访问[导航地址](http://www.yztpsg.cn/nav)
+
+- GitHub 访问[地址](https://liudewa888.github.io/)
+- 快速访问[地址](http://www.yztpsg.cn/nav)
 
 ## 更新说明
+
 ### 最近更新
-- 新增搜索技巧文件
+
+- [x] 工具: 英语练习
+- [x] 工具: 滴答清单
+- [x] 其它: 掘金文章
+- [x] 其它: 掘进收藏
