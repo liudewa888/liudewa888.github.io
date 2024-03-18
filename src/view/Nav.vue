@@ -309,9 +309,16 @@ const init = () => {
   }
 };
 function listenerInit() {
-  window.addEventListener("keypress", (e) => {
+  window.addEventListener("keydown", (e) => {
     if (e.key === "/" && inputRef.value !== document.activeElement) {
       inputRef.value.focus();
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key === "/") {
+      searchVal.value = "";
+      if (inputRef.value !== document.activeElement) {
+        inputRef.value.focus();
+      }
       e.preventDefault();
     }
   });
