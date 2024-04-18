@@ -24,8 +24,8 @@ const navigations = [
         link: "https://kaifa.baidu.com/",
       },
       {
-        title: "Goobe",
-        link: "https://goobe.io/",
+        title: "菜鸟工具",
+        link: "https://www.jyshare.com/",
       },
     ],
   },
@@ -82,12 +82,16 @@ const navigations = [
         link: "https://translate.google.com/",
       },
       {
-        title: "星火GPT",
-        link: "https://xinghuo.xfyun.cn/desk",
+        title: "智谱GPT",
+        link: "https://chatglm.cn/main/detail",
       },
       {
-        title: "百度GPT",
-        link: "https://yiyan.baidu.com/",
+        title: "ChatGPT",
+        link: "https://chat.openai.com/",
+      },
+      {
+        title: "秘塔GPT",
+        link: "https://metaso.cn/",
       },
       {
         title: "英语学习",
@@ -119,7 +123,7 @@ const navigations = [
         link: "https://segmentfault.com/",
       },
       {
-        title: "GitChat",
+        title: "GitCode",
         link: "https://gitbook.cn/chat/",
       },
       {
@@ -142,6 +146,10 @@ const navigations = [
       {
         title: "每日 Github",
         link: "https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo",
+      },
+      {
+        title: "前端周刊",
+        link: "https://github.com/ascoders/weekly",
       },
     ],
   },
@@ -242,4 +250,4 @@ const excludes = [
   },
 ];
 
-window.__nav_data = {navigations,searchs,includes,excludes}
+window.__nav_data = { navigations, searchs, includes, excludes };
