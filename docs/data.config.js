@@ -23,7 +23,7 @@ const navigations = [
         title: "开发者搜索",
         link: "https://kaifa.baidu.com/",
       },
-      {
+	  {
         title: "菜鸟工具",
         link: "https://www.jyshare.com/",
       },
@@ -74,14 +74,6 @@ const navigations = [
         link: "https://www.deepl.com/translator",
       },
       {
-        title: "百度翻译",
-        link: "https://fanyi.baidu.com/",
-      },
-      {
-        title: "谷歌翻译",
-        link: "https://translate.google.com/",
-      },
-      {
         title: "智谱GPT",
         link: "https://chatglm.cn/main/detail",
       },
@@ -89,9 +81,13 @@ const navigations = [
         title: "ChatGPT",
         link: "https://chat.openai.com/",
       },
-      {
+	  {
         title: "秘塔GPT",
         link: "https://metaso.cn/",
+      },
+	  {
+        title: "ClaudeGPT",
+        link: "https://claude.ai/new",
       },
       {
         title: "英语学习",
@@ -123,10 +119,6 @@ const navigations = [
         link: "https://segmentfault.com/",
       },
       {
-        title: "GitCode",
-        link: "https://gitbook.cn/chat/",
-      },
-      {
         title: "V2EX",
         link: "https://www.v2ex.com/",
       },
@@ -147,7 +139,7 @@ const navigations = [
         title: "每日 Github",
         link: "https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo",
       },
-      {
+	  {
         title: "前端周刊",
         link: "https://github.com/ascoders/weekly",
       },
@@ -159,10 +151,6 @@ const navigations = [
       {
         title: "掘金文章",
         link: "https://juejin.cn/user/2708815556129406/posts",
-      },
-      {
-        title: "掘金收藏",
-        link: "https://juejin.cn/user/2708815556129406/collections",
       },
       {
         title: "My GitHub",
@@ -250,4 +238,4 @@ const excludes = [
   },
 ];
 
-window.__nav_data = { navigations, searchs, includes, excludes };
+window.__nav_data = {navigations,searchs,includes,excludes}
