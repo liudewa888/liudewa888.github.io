@@ -70,8 +70,8 @@ const navigations = [
     category: "工具",
     children: [
       {
-        title: "DeepL翻译",
-        link: "https://www.deepl.com/translator",
+        title: "DeepSeek",
+        link: "https://chat.deepseek.com",
       },
       {
         title: "智谱GPT",
@@ -81,13 +81,17 @@ const navigations = [
         title: "ChatGPT",
         link: "https://chat.openai.com/",
       },
-	  {
-        title: "秘塔GPT",
-        link: "https://metaso.cn/",
+	{
+        title: "Kimi",
+        link: "https://kimi.moonshot.cn/chat",
       },
 	  {
         title: "ClaudeGPT",
         link: "https://claude.ai/new",
+      },
+      {
+        title: "DeepL翻译",
+        link: "https://www.deepl.com/translator",
       },
       {
         title: "英语学习",
