@@ -11,7 +11,7 @@
 ## 演示地址
 
 - GitHub 访问[地址](https://liudewa888.github.io/)
-- 快速访问[地址](http://www.yztpsg.cn/nav)
+- 快速访问[地址](http://liudewa.cc/nav)
 
 ## 更新说明
 
